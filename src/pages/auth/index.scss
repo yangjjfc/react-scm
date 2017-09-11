@@ -1,0 +1,18 @@
+.auth_box{
+    background:rgba(29, 144, 230, 0.38);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    .auth_title{
+        font-size: 22px;
+        text-align: center;
+        color:#f00;
+        margin-top:200px;
+    }
+    .auth_form{
+        width:400px;
+        margin:20px auto;
+    }
+}

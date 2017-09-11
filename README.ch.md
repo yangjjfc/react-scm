@@ -1,5 +1,9 @@
 
 
+git 链接远程仓库
+本地git init
+然后git remote add origin https://github.com/guyibang/TEST2.git指向github地址
+
 1.css支持scss,npm install sass-loader node-sass --save-dev
 配置 webpack.config.dev 里面配置加载sass-loader
 这是一种简单的配置,后期有问题在修改
