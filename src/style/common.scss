@@ -1,0 +1,256 @@
+@import './mixin.scss';
+// @import './element-ui.scss';
+body, div, span, header, footer, nav, section, aside, article, ul, dl, dt, dd, li, a, p, h1, h2, h3, h4,h5, h6, i, b, textarea, button, input, select, figure, figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-font-smoothing: antialiased;
+    &:focus {
+        outline: none;
+    }
+}
+body{
+    font-size:12px;
+    color: #2c3e50;
+    -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+   text-rendering: optimizeLegibility;
+   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+   @include  colorbody
+}
+html {
+  box-sizing: border-box;
+  @include  colorbody  
+}
+
+  
+/*定义滚动条轨道 内阴影+圆角*/  
+::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 1px rgba( 0, 0,0,0);   
+    border-radius: 10px;  
+    background-color: #F5F5F5;  
+}  
+  
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb   
+{  
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: #555;  
+}  
+
+input[type="button"], input[type="submit"], input[type="search"], input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+textarea { -webkit-appearance: none;}   
+
+/*顶层setion样式*/
+.container_setion{
+    background: #fff;
+    border: 1px solid #d1dbe5;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .12), 0 0 6px 0 rgba(0, 0, 0, .04);
+    width: 100%;
+    padding: 10px;
+}
+
+.clear{
+    zoom:1;
+    &:after{
+        content: '';
+    display: block;
+    clear: both;
+    }
+}
+
+.back_img{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.margin0{
+    margin: 0 auto;
+}
+
+.left{
+    float: left;
+}
+
+.right,.pull-right{
+    float: right;
+}
+.percent_w80{
+    width:80%;
+}
+
+
+.hide{
+    display: none;
+}
+.text-right{
+    text-align: right
+}
+.text-center{
+    text-align: center
+}
+
+.show{
+    display: block;
+}
+
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.toolbar {
+    // background: #f2f2f2;
+    padding: 0;
+    margin: 10px 0px;
+    .ivu-form-item {
+        margin-bottom: 0;
+    }
+}
+td{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.w100 {
+    width: 100px !important;
+}
+
+.w120 {
+    width: 120px !important;
+}
+
+.w140 {
+    width: 140px !important;
+}
+
+.w160 {
+    width: 160px !important;
+}
+
+.w180 {
+    width: 180px !important;
+}
+
+.w200 {
+    width: 200px !important;
+}
+
+.w220 {
+    width: 220px !important;
+}
+
+.w240 {
+    width: 240px !important;
+}
+
+.w260 {
+    width: 260px !important;
+}
+
+.w280 {
+    width: 280px !important;
+}
+.w300 {
+    width: 300px !important;
+}
+.w400 {
+    width: 400px !important;
+}
+.mgr10{
+    margin-right: 10px;
+}
+.mgr5{
+    margin-right:5px;
+}
+.mgl5{
+    margin-left:5px !important;
+}
+.mgr10{
+    margin-right:10px;
+}
+.Blue,.blue{
+    color:#4197eb;
+}
+.Success,.green{
+    color:#3aa13e;
+}
+.Warning,.orange{
+    color:#ff8800;
+}
+.Danger,.red{
+    color:#f44b3f;
+}
+.Silver,.gray{
+    color:#8492A6;
+}
+.grey{
+    color:#999;
+}
+/*nprogress样式修改*/
+#nprogress .bar {
+    background: #FF0 !important;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px !important;
+}
+
+/*黄色提示*/
+.tips{
+     color:#F7BA2A;
+    // background: url('./assets/images/tips_info.png') no-repeat left top;
+    padding-left: 18px;
+    font-size:12px;
+    line-height: 12px;
+}
+
+/*自定义table样式*/
+.ui-table{
+    width: 100%;
+    margin-bottom:10px;
+    table {
+        width:100%;
+        border-collapse:collapse;border-spacing:0;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        tr:hover{
+             background-color: #f9f9f9;
+        }
+        th,td {
+            border-right: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            color: #333;
+            line-height: 24px;
+            padding:  5px 8px;
+            word-break: break-all;
+            word-wrap: break-word;
+            vertical-align: middle;
+        }
+        .table_name{
+            width: 90px;
+          //  max-width: 150px;
+            background-color: #f9f9f9;
+            text-align: right;
+            padding: 5px 10px 5px 5px;
+            color: #666;
+            text-indent: 0;
+            vertical-align: middle;
+        }
+    }
+}
+
+
+
