@@ -88,15 +88,18 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "axios": "^0.16.2",
     "element-react": "^1.1.9",
     "element-theme-default": "^1.4.4",
     "history": "^4.7.2",
     "node-sass": "^4.5.3",
+    "nprogress": "^0.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
     "sass-loader": "^6.0.6"
-  }
+  },
+  "proxy": "http://scm.dev.cloudyigou.com"
 }

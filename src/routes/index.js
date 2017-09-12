@@ -5,9 +5,12 @@ import Table from '../pages/table/table'
 import Auth from '../pages/auth'
 
 const Routes = (
-    <Switch>
-        <Route exact path="/" component={Auth} />
-        <Route  path="/123" component={Table} />
-    </Switch>
+    <browserHistory>
+        <Switch>
+            <Route exact path="/" component={Auth} />
+            <Route  path="/123" component={Table} />
+            <Route  path="/index" component={App} />
+        </Switch>
+    </browserHistory>
 )
 export default Routes

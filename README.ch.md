@@ -21,3 +21,9 @@ npm install --save history
 
 
 3.ui使用element-react
+
+
+
+4.安装axios,支持http请求 ,安装NProgress,加载进度条
+
+5.安装redux,react-redux
