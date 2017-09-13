@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Interceptor from './interceptor';
-// import {state} from '@/store';
+import {store} from '@/index';
 let interceptor = new Interceptor();
 interceptor.init();
 
@@ -11,8 +11,7 @@ let Http = {
             'Content-Type': 'application/json',
             'apiName': url
         };
-        //let token = state.userInfo ? state.userInfo.token : '';
-        let token =data.token||'';
+        let token = store.getState().currentUser.token || '';
         if (token) {
             headers = Object.assign(headers, {'jtoken': token});
         }

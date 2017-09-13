@@ -121,6 +121,7 @@ export const changeImgSize = (src, size = '100x100') => {
  */
 
 export const encryption = (password, clientid, token) => {
+    console.log(clientid,token)
     let _encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(SHA256(password)), CryptoJS.enc.Utf8.parse(clientid), {
         iv: CryptoJS.enc.Utf8.parse(token),
         mode: CryptoJS.mode.CBC,

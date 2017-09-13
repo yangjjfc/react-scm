@@ -1,22 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import createHistory from 'history/createBrowserHistory'
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import createHistory from 'history/createBrowserHistory' //路由设置
+import { ConnectedRouter } from 'react-router-redux'
 import Routes from './routes';
-import rootReducer from './reducers';
+import configureStore from './redux/store';
 import registerServiceWorker from './registerServiceWorker';
 import 'element-theme-default';
 import './style/common.scss';
 
-
 const history = createHistory();
-const middleware = routerMiddleware(history);
+export const store=configureStore({});
 
-
-//具体配置查看 https://github.com/reacttraining/react-router/tree/master/packages/react-router-redux
-const store = createStore(rootReducer, applyMiddleware(middleware))
 ReactDOM.render(<Provider store={store}>
     <ConnectedRouter history={history}>
         <div>
