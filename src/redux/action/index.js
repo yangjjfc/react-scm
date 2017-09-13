@@ -3,7 +3,7 @@ import $ from '@/services/Http'
 export const USERINFO = 'USERINFO' //用户信息
 
 //存储当前用户信息
-const setCurrentUser = msg => {
+export const setCurrentUser = msg => {
     console.log(1)
 
     return {
@@ -27,8 +27,10 @@ export const getUser = () => {
 //异步action暂时无法解决
 export const login = (data = {}) => {
     return dispatch => {
-       return $.post('login', data).then(result => {
-             dispatch(setCurrentUser(result.data));
+        return $.post('login', data).then(result => {
+            if (result.code === 'SUCCESS') {
+                dispatch(setCurrentUser(result.data));
+            }
         }, err => {
         })
     }

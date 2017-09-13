@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Form, Input, Button, Card } from 'element-react';
 import $ from '@/services/Http'
 import { encryption } from '@/services/global.common';
-import { getUser,login } from '@/redux/action';
+import { getUser,login,setCurrentUser } from '@/redux/action';
 
 import './index.scss'
 class Auth extends Component {
@@ -15,7 +15,7 @@ class Auth extends Component {
                 password: '',
                 authCode: ''
             },
-            imgSrc: 'http://scmp.dev.cloudyigou.com/gateway/verifyCode/?t=' + Math.round(Math.random() * 1000000),
+            imgSrc: 'http://scmp.dev.cloudyigou.com/gateway/verifyCode/',
             rules: {
                 username: [
                     { required: true, message: '请输入用户名', trigger: 'change' }
@@ -28,31 +28,24 @@ class Auth extends Component {
                 ]
             }
         }
-       
-      
     }
     handleSubmit(e) {
         e.preventDefault();//阻止默认事件
         let {dispatch,token,clientId}=this.props;
         this.refs.form.validate((valid) => {
             if (valid) {
-                dispatch(login({ ...this.state.form, password: encryption(this.state.form.password,clientId,token)})).then(res=>{
-                        console.log(res)
-                },err=>{
-                    console.log(err)
-                })
-                // $.post('login', { ...this.state.form, password: encryption(this.state.form.password,clientId,token)}).then(result => {
-                //     if (result.code === 'SUCCESS') {
-                //         this.props.history.push('/index') //this.props.history获取路由信息
-                //     } else {
-                //         this.setState({
-                //             form: Object.assign({}, this.state.form, { authCode: '' }),
-                //             imgSrc: 'http://scmp.dev.cloudyigou.com/gateway/verifyCode/?t=' + Math.round(Math.random() * 1000000)
-                //         })
-                //     }
-                // }, err => {
-
-                // });
+                $.post('login', { ...this.state.form, password: encryption(this.state.form.password,clientId,token)}).then(result => {
+                    if (result.code === 'SUCCESS') {
+                        dispatch(setCurrentUser(result.data));
+                        this.props.history.push('/index') //this.props.history获取路由信息
+                        
+                    } else {
+                        this.setState({
+                            form: Object.assign({}, this.state.form, { authCode: '' }),
+                            imgSrc: this.state.imgSrc+'?t=' + Math.round(Math.random() * 1000000)
+                        })
+                    }
+                });
             } else {
                 return
             }
@@ -71,7 +64,7 @@ class Auth extends Component {
     changeAuthImg(e) {
         e.preventDefault();
         this.setState({
-            imgSrc: 'http://scmp.dev.cloudyigou.com/gateway/verifyCode/?t=' + Math.round(Math.random() * 1000000)
+            imgSrc: this.state.imgSrc+'?t=' + Math.round(Math.random() * 1000000)
         })
     }
     componentWillMount() {
@@ -117,6 +110,7 @@ class Auth extends Component {
 }
 
 let mapStateToProps = state => {
+    console.log(state)
     return {
         token:state.currentUser.token,
         clientId:state.currentUser.clientId
