@@ -1,0 +1,28 @@
+$menuHeight: 60px;
+$menuWidth: 180px;
+.webview{
+    header{
+        height:$menuHeight;
+        background:rgba(31, 166, 208, 0.91);
+    }
+    .container{
+        width: 100%;  
+        position: absolute;  
+        top: $menuHeight;  
+        bottom: 0px;  
+        z-index: 0;
+        aside{
+            position:absolute;
+            top:0;
+            left: 0;
+            bottom: 0;
+            width: $menuWidth;
+            background: #324157;
+        }
+        section{
+            margin-left: $menuWidth;
+            padding: 10px;
+            background: #999;
+        }
+    }
+}

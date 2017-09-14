@@ -69,7 +69,7 @@ class Auth extends Component {
     }
     componentWillMount() {
         let {dispatch}=this.props;
-        dispatch(getUser())
+        dispatch(getUser());
     }
     render() {
         console.log(this.props)
